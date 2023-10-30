@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    background-color: #f44336;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+  }
+  
+  .filters {
+    margin-top: 20px;
+  }
+  
+  select, button {
+    padding: 10px;
+    margin: 5px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 20px;
+  }
+  
+  .card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .card img {
+    max-width: 100px;
+    max-height: 100px;
+  }
+  
+  .card.flip .back {
+    display: none;
+  }
+  
+  .card.flip .front {
+    display: block;
+  }
+  
+  .card.flip .front,
+  .card.flip .back {
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+  
+  .card .front,
+  .card .back {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .card .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+  }
+  
+  .card .back {
+    transform: rotateY(180deg);
+  }
+  
+  #no-results {
+    color: #f44336;
+    font-weight: bold;
+    display: none;
+  }
+  

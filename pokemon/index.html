@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokémon App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Pokémon Search</h1>
+    <div class="filters">
+      <label for="type-filter">Filter by Type:</label>
+      <select id="type-filter">
+        <option value="">All</option>
+        <option value="fire">Fire</option>
+        <option value="water">Water</option>
+        <option value="electric">Electric</option>
+        <!-- Add more options as needed -->
+      </select>
+      <button id="filter-button">Filter</button>
+      <button id="reset-button">Reset</button>
+    </div>
+    <div class="search">
+      <input type="text" id="search-input" placeholder="Enter Pokémon name" />
+      <button id="search-button">Search</button>
+    </div>
+    <section id="pokedex" class="grid"></section>
+    <script src="script.js"></script>
+  </body>
+</html>
