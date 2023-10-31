@@ -53,16 +53,20 @@ function createPokemonCards(pokemons) {
     const name = document.createElement("h3");
     name.textContent = pokemon.name;
 
-    const type = document.createElement("p");
-    type.textContent = "Type: " + types.join(", ");
-
     const image = document.createElement("img");
     image.src = pokemon.sprites.front_default;
     image.alt = pokemon.name;
 
+    const type = document.createElement("p");
+    type.textContent = types.join(", ");
+    type.style.backgroundColor ="rgba(0,0,0,0.5)";
+    type.style.color ="white";
+    type.style.padding ="10px";
+    type.style.borderRadius ="7px";
+    
     nameAndImage.appendChild(name);
-    nameAndImage.appendChild(type);
     nameAndImage.appendChild(image);
+    nameAndImage.appendChild(type);
 
     front.appendChild(cardNumber);
     front.appendChild(nameAndImage);
