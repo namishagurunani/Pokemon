@@ -7,22 +7,31 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Pokémon Search</h1>
+    <h1>GeeksterMon</h1>
     <div class="filters">
-      <label for="type-filter">Filter by Type:</label>
       <select id="type-filter">
-        <option value="">All</option>
-        <option value="fire">Fire</option>
-        <option value="water">Water</option>
-        <option value="electric">Electric</option>
-        <!-- Add more options as needed -->
+        <option value="">Types</option>
+        <option value="grass">grass</option>
+        <option value="fire">fire</option>
+        <option value="water">water</option>
+        <option value="bug">bug</option>
+        <option value="normal">normal</option>
+        <option value="poison">poison</option>
+        <option value="electric">electric</option>
+        <option value="ground">ground</option>
+        <option value="fairy">fairy</option>
+        <option value="fighting">fighting</option>
+        <option value="psychic">psychic</option>
+        <option value="rock">rock</option>
+        <option value="ghost">ghost</option>
+        <option value="ice">ice</option>
+        <option value="dragon">dragon</option>
       </select>
-      <button id="filter-button">Filter</button>
+      <button id="filter-button">Filter by Type</button>
       <button id="reset-button">Reset</button>
     </div>
     <div class="search">
-      <input type="text" id="search-input" placeholder="Enter Pokémon name" />
-      <button id="search-button">Search</button>
+      <input type="text" id="search-input" placeholder="Enter Pokémon Name" />
     </div>
     <section id="pokedex" class="grid"></section>
     <script src="script.js"></script>

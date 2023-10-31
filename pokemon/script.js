@@ -1,8 +1,8 @@
 const typeFilter = document.getElementById("type-filter");
+const filterButton = document.getElementById("filter-button");
 const resetButton = document.getElementById("reset-button");
 const searchInput = document.getElementById("search-input");
 const pokedex = document.getElementById("pokedex");
-const noResults = document.getElementById("no-results");
 
 let pokemonsData = [];
 
@@ -25,30 +25,81 @@ async function fetchPokemonData() {
 // Function to create Pokémon cards
 function createPokemonCards(pokemons) {
   pokedex.innerHTML = "";
-  pokemons.forEach((pokemon) => {
+  pokemons.forEach((pokemon, index) => {
     const card = document.createElement("div");
     card.classList.add("card");
 
+    // Add a class for the Pokémon's type
+    const types = pokemon.types.map((type) => type.type.name);
+    types.forEach((type) => {
+      card.classList.add(type);
+    });
+
+    // Front and Back of the card
+    const front = document.createElement("div");
+    front.classList.add("front");
+
+    const back = document.createElement("div");
+    back.classList.add("back");
+
+    // Common content for both front and back
+    const cardNumber = document.createElement("div");
+    cardNumber.classList.add("card-number");
+    cardNumber.textContent = `#${index + 1}`;
+
+    const nameAndImage = document.createElement("div");
+    nameAndImage.classList.add("name-and-image");
+
     const name = document.createElement("h3");
     name.textContent = pokemon.name;
+
+    const type = document.createElement("p");
+    type.textContent = "Type: " + types.join(", ");
 
     const image = document.createElement("img");
     image.src = pokemon.sprites.front_default;
     image.alt = pokemon.name;
 
-    const types = document.createElement("p");
-    types.textContent = "Type(s): " + pokemon.types.map((type) => type.type.name).join(", ");
+    nameAndImage.appendChild(name);
+    nameAndImage.appendChild(type);
+    nameAndImage.appendChild(image);
 
-    card.appendChild(name);
-    card.appendChild(image);
-    card.appendChild(types);
+    front.appendChild(cardNumber);
+    front.appendChild(nameAndImage);
+
+    // Back content
+    const abilities = document.createElement("div");
+    abilities.classList.add("abilities");
+
+    const abilitiesTitle = document.createElement("h3");
+    abilitiesTitle.textContent = "Abilities";
+
+    const abilitiesList = document.createElement("ul");
+    pokemon.abilities.forEach((ability) => {
+      const abilityItem = document.createElement("li");
+      abilityItem.textContent = ability.ability.name;
+      abilitiesList.appendChild(abilityItem);
+    });
+
+    const imageBack = document.createElement("img");
+    imageBack.src = pokemon.sprites.back_default;
+    imageBack.alt = pokemon.name;
+
+    abilities.appendChild(abilitiesTitle);
+    abilities.appendChild(abilitiesList);
+    abilities.appendChild(imageBack);
+
+    back.appendChild(abilities);
+
+    card.appendChild(front);
+    card.appendChild(back);
 
     pokedex.appendChild(card);
   });
 }
 
 // Function to handle type filtering
-typeFilter.addEventListener("change", () => {
+filterButton.addEventListener("click", () => {
   const selectedType = typeFilter.value.toLowerCase();
 
   if (selectedType === "all") {
