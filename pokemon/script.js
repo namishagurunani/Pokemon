@@ -59,10 +59,12 @@ function createPokemonCards(pokemons) {
 
     const type = document.createElement("p");
     type.textContent = types.join(", ");
-    type.style.backgroundColor ="rgba(0,0,0,0.5)";
+    type.style.backgroundColor ="black";
+    type.style.opacity ="0.9";
     type.style.color ="white";
-    type.style.padding ="10px";
+    type.style.padding ="15px 10px";
     type.style.borderRadius ="7px";
+    type.style.border ="1px dashed white";
     
     nameAndImage.appendChild(name);
     nameAndImage.appendChild(image);
