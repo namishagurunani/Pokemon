@@ -51,9 +51,11 @@ select, button {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   font-size: 1.2rem;
   font-weight: 600;
+  cursor: pointer;
 }
 select option{
 background-color: rgb(162, 124, 71);
+cursor: pointer;
 }
 select {
 appearance: none;
@@ -76,7 +78,6 @@ text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 input::placeholder{
 padding: 40px;
 color: white;
-
 }
 
 .grid {
